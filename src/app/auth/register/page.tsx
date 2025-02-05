@@ -126,7 +126,7 @@ const Register = () => {
 
   return (
     sessionStatus !== "authenticated" && (
-      <Card className="max-w-md mx-auto mt-7">
+      <Card className="max-w-md mx-auto my-24">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">
             Sign up

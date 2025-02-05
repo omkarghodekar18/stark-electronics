@@ -6,6 +6,8 @@ if (!MONGODB_URI) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local"
   );
+} else {
+  console.log("MONGODB_URI", MONGODB_URI);
 }
 // @ts-expect-error // Mongoose connection is cached
 let cached = global.mongoose;

@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
+import Link from "next/link";
 
 const featuredProduct = {
   id: "arduino-kits",
@@ -31,10 +32,12 @@ export default function Home() {
               <div className="mb-8">
                 <span className="text-3xl font-bold">₹1,200</span>
               </div>
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors inline-flex items-center">
-                Shop Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              <Link href="/product/arduino-kits">
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors inline-flex items-center">
+                  Shop Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
+              </Link>
             </div>
             <div className="relative h-[400px]">
               <Image
