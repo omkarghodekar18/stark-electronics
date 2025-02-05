@@ -3,8 +3,9 @@
 import { CheckCircle, Home } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function ThankYou() {
+function ThankYouContent() {
   const searchParams = useSearchParams();
   const customerName = searchParams.get("customerName") || "valued customer";
 
@@ -26,5 +27,26 @@ export default function ThankYou() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function ThankYou() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen pt-16 flex items-center justify-center bg-gray-50">
+          <div className="max-w-md w-full mx-auto p-8 bg-white rounded-lg shadow-lg text-center">
+            <div className="animate-pulse">
+              <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-6" />
+              <div className="h-8 bg-gray-200 rounded mb-4" />
+              <div className="h-6 bg-gray-200 rounded mb-8" />
+              <div className="h-12 w-40 bg-gray-200 rounded-lg mx-auto" />
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ThankYouContent />
+    </Suspense>
   );
 }
