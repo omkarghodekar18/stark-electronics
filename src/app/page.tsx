@@ -10,7 +10,7 @@ const featuredProduct = {
   description:
     "Complete Arduino starter kit with everything you need to begin your electronics journey.",
   images: [
-    "https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&q=80&w=800",
+    "https://i.postimg.cc/Xv0y7C5r/1.jpg",
   ],
   specifications: [],
   components: [],
