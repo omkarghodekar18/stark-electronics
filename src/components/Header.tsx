@@ -24,7 +24,7 @@ export default function Header() {
             <Link href="/" className="flex items-center">
               <Wrench className="h-8 w-8 text-blue-600" />
               <div className="ml-2">
-                <h1 className="text-xl font-bold text-gray-900">Built It</h1>
+                <h1 className="text-xl font-bold text-gray-900">Stark Electronics</h1>
                 <p className="text-xs text-gray-600">Just Built It</p>
               </div>
             </Link>
