@@ -82,9 +82,10 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
   console.log(params);
 
   const images = [
-    "https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1626557981101-aae6f84aa6ff?auto=format&fit=crop&q=80&w=800",
+    "https://i.postimg.cc/Xv0y7C5r/1.jpg",
+    "https://i.postimg.cc/0NdK6yGc/2.jpg",
+    "https://i.postimg.cc/kXzbzZXF/3.jpg",
+    "https://i.postimg.cc/Sx9Mhrn0/4.jpg"
   ];
 
   const handleQuantityChange = (value: number) => {
@@ -130,9 +131,8 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`relative aspect-square rounded-lg overflow-hidden ${
-                    selectedImage === index ? "ring-2 ring-blue-600" : ""
-                  }`}
+                  className={`relative aspect-square rounded-lg overflow-hidden ${selectedImage === index ? "ring-2 ring-blue-600" : ""
+                    }`}
                 >
                   <Image
                     src={image}
