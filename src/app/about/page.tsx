@@ -59,9 +59,8 @@ export default function About() {
                   <div className="ml-4">
                     <h3 className="font-semibold">Phone Numbers</h3>
                     <div className="space-y-1">
-                      <p>+91 96733256</p>
+                      <p>+91 9673353256</p>
                       <p>+91 8999221747</p>
-                      <p>+91 8218962183</p>
                     </div>
                   </div>
                 </div>

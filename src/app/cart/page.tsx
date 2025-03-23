@@ -101,8 +101,8 @@ export default function CartPage() {
 
   const getPriceBreakdown = (): PriceBreakdown => {
     const subtotal = getTotalPrice();
-    const deliveryFee = subtotal >= 2000 ? 0 : 100; // Free delivery over ₹2000
-    const gst = subtotal * 0.18;
+    const deliveryFee = 0; // Free delivery over ₹2000
+    const gst = 0;
     const total = subtotal + deliveryFee + gst;
 
     return {
@@ -151,19 +151,17 @@ export default function CartPage() {
     items.forEach((item) => {
       message += `• ${item.name}\n`;
       message += `  Quantity: ${item.quantity}\n`;
-      message += `  Price: ₹${item.price} × ${item.quantity} = ₹${
-        item.price * item.quantity
-      }\n\n`;
+      message += `  Price: ₹${item.price} × ${item.quantity} = ₹${item.price * item.quantity
+        }\n\n`;
     });
 
     // Price Breakdown
     message += `*Price Breakdown:*\n`;
     message += `Subtotal: ₹${priceBreakdown.subtotal.toFixed(2)}\n`;
-    message += `Delivery Fee: ${
-      priceBreakdown.deliveryFee === 0
+    message += `Delivery Fee: ${priceBreakdown.deliveryFee === 0
         ? "FREE"
         : `₹${priceBreakdown.deliveryFee.toFixed(2)}`
-    }\n`;
+      }\n`;
     message += `GST (18%): ₹${priceBreakdown.gst.toFixed(2)}\n`;
     message += `*Total Amount: ₹${priceBreakdown.total.toFixed(2)}*`;
 

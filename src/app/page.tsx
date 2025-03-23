@@ -6,7 +6,7 @@ import Link from "next/link";
 const featuredProduct = {
   id: "arduino-kits",
   name: "Arduino Starter Kit",
-  price: 1200,
+  price: 1199,
   description:
     "Complete Arduino starter kit with everything you need to begin your electronics journey.",
   images: [
@@ -30,7 +30,7 @@ export default function Home() {
                 kit.
               </p>
               <div className="mb-8">
-                <span className="text-3xl font-bold">₹1,200</span>
+                <span className="text-3xl font-bold">₹1,199</span>
               </div>
               <Link href="/product/arduino-kits">
                 <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors inline-flex items-center">

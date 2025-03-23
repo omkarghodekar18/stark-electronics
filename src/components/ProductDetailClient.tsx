@@ -98,7 +98,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     addItem({
       id: "1", //product.id,
       name: "Arduino Starter Kit",
-      price: 1200,
+      price: 1199,
       quantity: quantity,
       imageUrl: images[0],
     });
@@ -157,7 +157,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
             </p>
 
             <div className="flex items-center space-x-4">
-              <span className="text-3xl font-bold text-blue-600">₹1,200</span>
+              <span className="text-3xl font-bold text-blue-600">₹1,199</span>
               <span className="text-sm text-gray-500">(Inclusive of GST)</span>
             </div>
 

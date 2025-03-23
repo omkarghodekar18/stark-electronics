@@ -21,7 +21,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center space-x-2">
               <Wrench className="h-8 w-8 text-white" />
               <div>
-                <h1 className="text-xl font-bold text-white">Built It</h1>
+                <h1 className="text-xl font-bold text-white">Stark Electronics</h1>
                 <p className="text-xs text-gray-300">Just Built It</p>
               </div>
             </Link>
@@ -47,11 +47,18 @@ export default function Footer() {
                 className="flex items-center text-gray-300 hover:text-white"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                <span className="text-sm">+91 89992 21747</span>
+                <span className="text-sm">+91 8999221747</span>
+              </a>
+              <a
+                href="tel:+919673353256"
+                className="flex items-center text-gray-300 hover:text-white"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                <span className="text-sm">+91 9673353256</span>
               </a>
               <div className="flex items-center text-gray-300">
                 <MapPin className="h-4 w-4 mr-2" />
-                <span className="text-sm">Mumbai, Maharashtra, India</span>
+                <span className="text-sm">Pune, Maharashtra, India</span>
               </div>
             </div>
           </div>
