@@ -151,17 +151,19 @@ export default function CartPage() {
     items.forEach((item) => {
       message += `• ${item.name}\n`;
       message += `  Quantity: ${item.quantity}\n`;
-      message += `  Price: ₹${item.price} × ${item.quantity} = ₹${item.price * item.quantity
-        }\n\n`;
+      message += `  Price: ₹${item.price} × ${item.quantity} = ₹${
+        item.price * item.quantity
+      }\n\n`;
     });
 
     // Price Breakdown
     message += `*Price Breakdown:*\n`;
     message += `Subtotal: ₹${priceBreakdown.subtotal.toFixed(2)}\n`;
-    message += `Delivery Fee: ${priceBreakdown.deliveryFee === 0
+    message += `Delivery Fee: ${
+      priceBreakdown.deliveryFee === 0
         ? "FREE"
         : `₹${priceBreakdown.deliveryFee.toFixed(2)}`
-      }\n`;
+    }\n`;
     message += `GST (18%): ₹${priceBreakdown.gst.toFixed(2)}\n`;
     message += `*Total Amount: ₹${priceBreakdown.total.toFixed(2)}*`;
 
@@ -173,7 +175,7 @@ export default function CartPage() {
     items: CartItem[],
     priceBreakdown: PriceBreakdown
   ) => {
-    const phoneNumber = "918999221747"; // Replace with your WhatsApp business number
+    const phoneNumber = "917666596339"; // Replace with your WhatsApp business number
     const message = formatOrderDetails(formData, items, priceBreakdown);
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
