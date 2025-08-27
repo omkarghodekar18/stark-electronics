@@ -229,7 +229,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                "Excellent quality components and super fast delivery! The Arduino kit helped me get started with electronics. Highly recommended for beginners."
+                &ldquo;Excellent quality components and super fast delivery! The Arduino kit helped me get started with electronics. Highly recommended for beginners.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
@@ -249,7 +249,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                "Great customer support and authentic products. I've built multiple projects with components from Stark Electronics. Keep up the good work!"
+                &ldquo;Great customer support and authentic products. I&rsquo;ve built multiple projects with components from Stark Electronics. Keep up the good work!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
@@ -269,7 +269,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                "Perfect for our college electronics lab. Bulk orders are processed efficiently and all components work as expected. Reliable supplier!"
+                &ldquo;Perfect for our college electronics lab. Bulk orders are processed efficiently and all components work as expected. Reliable supplier!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">

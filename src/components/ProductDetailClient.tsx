@@ -115,7 +115,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
         title: "Added to cart",
         description: `${quantity}x Arduino Starter Kit added to your cart.`,
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Error",
         description: "Failed to add item to cart. Please try again.",

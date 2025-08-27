@@ -8,17 +8,18 @@ export function LoadingSpinner({ className = "" }: { className?: string }) {
   )
 }
 
+interface LoadingButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
+  loading?: boolean
+  className?: string
+}
+
 export function LoadingButton({ 
   children, 
   loading = false, 
   className = "",
   ...props 
-}: { 
-  children: React.ReactNode
-  loading?: boolean
-  className?: string
-  [key: string]: any
-}) {
+}: LoadingButtonProps) {
   return (
     <button 
       className={`flex items-center justify-center gap-2 ${className}`}
