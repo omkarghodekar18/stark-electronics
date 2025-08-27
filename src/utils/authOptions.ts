@@ -26,22 +26,32 @@ const authOptions: AuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials");
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            return null;
+          }
+          await dbConnect();
+          const user = await User.findOne({ email: credentials.email });
+          if (!user) {
+            return null;
+          }
+          const isPasswordCorrect = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
+          if (!isPasswordCorrect) {
+            return null;
+          }
+          return {
+            id: user._id.toString(),
+            email: user.email,
+            name: user.name,
+            role: user.role || 'user'
+          };
+        } catch (error) {
+          console.error('Auth error:', error);
+          return null;
         }
-        await dbConnect();
-        const user = await User.findOne({ email: credentials.email });
-        if (!user) {
-          throw new Error("No user found with this email");
-        }
-        const isPasswordCorrect = await bcrypt.compare(
-          credentials.password,
-          user.password
-        );
-        if (!isPasswordCorrect) {
-          throw new Error("Invalid password");
-        }
-        return user;
       },
     }),
   ],

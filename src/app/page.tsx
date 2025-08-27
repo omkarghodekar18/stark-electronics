@@ -3,6 +3,27 @@ import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Store',
+  name: 'Stark Electronics',
+  description: 'Premium Arduino starter kits, electronic components, and educational resources',
+  url: 'https://starkelectronics.in',
+  logo: 'https://starkelectronics.in/logo.png',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'IN',
+    addressLocality: 'India'
+  },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'INR',
+    lowPrice: '99',
+    highPrice: '5999',
+    offerCount: '50+'
+  }
+};
+
 const featuredProduct = {
   id: "arduino-kits",
   name: "Arduino Starter Kit",
@@ -18,7 +39,12 @@ const featuredProduct = {
 
 export default function Home() {
   return (
-    <div className="pt-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="pt-16">
       {/* Hero Section */}
       <section className="relative bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -42,9 +68,13 @@ export default function Home() {
             <div className="relative h-[400px]">
               <Image
                 src={featuredProduct.images[0]}
-                alt="Arduino Starter Kit"
+                alt="Arduino Starter Kit - Complete electronics learning kit with Arduino UNO"
                 fill
                 className="rounded-lg object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
             </div>
           </div>
@@ -96,6 +126,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

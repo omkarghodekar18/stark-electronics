@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { LoadingButton } from "@/components/ui/loading";
 import {
   ZoomIn,
   Package,
@@ -77,6 +78,7 @@ interface ProductDetailProps {
 export default function ProductDetailClient({ params }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
   const { addItem } = useCartStore();
   const { toast } = useToast();
   console.log(params);
@@ -94,19 +96,34 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
     }
   };
 
-  const handleAddToCart = () => {
-    addItem({
-      id: "1", //product.id,
-      name: "Arduino Starter Kit",
-      price: 1099,
-      quantity: quantity,
-      imageUrl: images[0],
-    });
+  const handleAddToCart = async () => {
+    setIsAddingToCart(true);
+    
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      addItem({
+        id: "1", //product.id,
+        name: "Arduino Starter Kit",
+        price: 1099,
+        quantity: quantity,
+        imageUrl: images[0],
+      });
 
-    toast({
-      title: "Added to cart",
-      description: `Arduino Starter Kit has been added to your cart.`,
-    });
+      toast({
+        title: "Added to cart",
+        description: `${quantity}x Arduino Starter Kit added to your cart.`,
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to add item to cart. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsAddingToCart(false);
+    }
   };
 
   return (
@@ -189,13 +206,14 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
               </div>
             </div>
 
-            <Button
+            <LoadingButton
               onClick={handleAddToCart}
-              className="w-full bg-blue-600 hover:bg-blue-700"
+              loading={isAddingToCart}
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md disabled:opacity-50"
             >
               <ShoppingCart className="h-5 w-5 mr-2" />
-              Add to Cart
-            </Button>
+              {isAddingToCart ? "Adding..." : "Add to Cart"}
+            </LoadingButton>
 
             <div className="border-t pt-6 space-y-4">
               <div className="flex items-center space-x-2">

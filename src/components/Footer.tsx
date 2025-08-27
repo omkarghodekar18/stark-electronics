@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Facebook,
   Linkedin,
@@ -8,7 +9,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Wrench,
 } from "lucide-react";
 
 export default function Footer() {
@@ -18,11 +18,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="lg:flex lg:flex-col space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Wrench className="h-8 w-8 text-white" />
+            <Link href="/" className="flex items-center space-x-3">
+              <Image 
+                src="/logo.png" 
+                alt="Stark Electronics Logo" 
+                width={32} 
+                height={32} 
+                className="h-8 w-8 rounded-full object-cover" 
+              />
               <div>
                 <h1 className="text-xl font-bold text-white">Stark Electronics</h1>
-                <p className="text-xs text-gray-300">Just Built It</p>
+                <p className="text-xs text-gray-300">Innovation in Electronics</p>
               </div>
             </Link>
             <p className="text-gray-300 text-sm">
@@ -146,7 +152,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © {new Date().getFullYear()} Built It. All rights reserved.
+              © 2025 Built It. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a
