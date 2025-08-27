@@ -11,13 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Separator } from "@/components/ui/separator";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { SearchableSelect } from "@/components/ui/searchable-select";
 import { useToast } from "@/hooks/use-toast";
 import {
   LocationState,
@@ -291,7 +285,7 @@ export default function CartPage() {
   const priceBreakdown = getPriceBreakdown();
 
   return (
-    <div className="container mx-auto py-16 px-4">
+    <div className="container mx-auto py-16 mt-12 px-4">
       <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -431,45 +425,37 @@ export default function CartPage() {
 
                   <div>
                     <Label htmlFor="state">State</Label>
-                    <Select
+                    <SearchableSelect
+                      options={states.map((state) => ({
+                        value: state.name,
+                        label: state.name,
+                      }))}
                       value={formData.state}
+                      placeholder="Search and select your state"
                       onValueChange={(value) =>
                         setFormData({ ...formData, state: value })
                       }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your state" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {states.map((state) => (
-                          <SelectItem key={state.isoCode} value={state.name}>
-                            {state.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    />
                   </div>
 
                   <div>
                     <Label htmlFor="district">City</Label>
-                    <Select
+                    <SearchableSelect
+                      options={cities.map((city) => ({
+                        value: city.name,
+                        label: city.name,
+                      }))}
                       value={formData.district}
+                      placeholder={
+                        formData.state
+                          ? "Search and select your city"
+                          : "Select state first"
+                      }
                       onValueChange={(value) =>
                         setFormData({ ...formData, district: value })
                       }
                       disabled={!formData.state}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select your city" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {cities.map((city) => (
-                          <SelectItem key={city.name} value={city.name}>
-                            {city.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    />
                   </div>
 
                   <div>
