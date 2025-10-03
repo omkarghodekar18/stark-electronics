@@ -82,7 +82,7 @@ export default function ProductDetailClient({ params }: ProductDetailProps) {
   console.log(params);
 
   const images = [
-    "https://i.postimg.cc/Xv0y7C5r/1.jpg",
+    "https://i.postimg.cc/prxgL4Gk/1.jpg",
     "https://i.postimg.cc/0NdK6yGc/2.jpg",
     "https://i.postimg.cc/kXzbzZXF/3.jpg",
     "https://i.postimg.cc/Sx9Mhrn0/4.jpg"
